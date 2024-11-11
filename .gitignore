@@ -1,0 +1,16 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/NavegacaoAlura/DesignTimeBuild
+/.vs/NavegacaoAlura/FileContentIndex
+/.vs/NavegacaoAlura/v17
+/NavegacaoAlura/bin/Debug/net8.0/Cursos.csv
+/NavegacaoAlura/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.dll
+/NavegacaoAlura/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/NavegacaoAlura/bin/Debug/net8.0/NavegacaoAlura.deps.json
+/NavegacaoAlura/bin/Debug/net8.0/NavegacaoAlura.dll
+/NavegacaoAlura/bin/Debug/net8.0/NavegacaoAlura.exe
+/NavegacaoAlura/bin/Debug/net8.0/NavegacaoAlura.pdb
+/.vs/SeleniumProject/v17/.wsuo
+/.vs/SeleniumProject/v17/DocumentLayout.json
