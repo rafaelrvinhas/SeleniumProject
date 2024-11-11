@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NavegacaoAlura.Objeto
+namespace NavegacaoAlura.Services.Interfaces
 {
-    public class Professor
+    public interface INavegadorAlura
     {
-        public string NomeProfessor { get; set; }
+        void ExecutaNavegacao();
     }
 }

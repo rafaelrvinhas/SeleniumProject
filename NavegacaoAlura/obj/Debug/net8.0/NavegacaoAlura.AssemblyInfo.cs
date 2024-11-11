@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NavegacaoAlura")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2e8149b8049b727934450d77cbe38d284a8f02f1")]
 [assembly: System.Reflection.AssemblyProductAttribute("NavegacaoAlura")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NavegacaoAlura")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

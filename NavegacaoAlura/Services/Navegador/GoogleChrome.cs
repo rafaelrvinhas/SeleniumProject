@@ -1,16 +1,12 @@
-﻿using OpenQA.Selenium;
+﻿using NavegacaoAlura.Services.Interfaces;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
-using System.Linq;
 using System.Management;
-using System.Threading;
 
-namespace Selenium.Navegadores
+namespace NavegacaoAlura.Services.Navegador
 {
-    internal class GoogleChrome
+    public class GoogleChrome
     {
         #region Propriedades públicas
         public string ProcessIdDriver { get; set; }
@@ -201,8 +197,8 @@ namespace Selenium.Navegadores
                 tentativas++;
                 try
                 {
-                    By byTag = By.TagName (tag);
-                    
+                    By byTag = By.TagName(tag);
+
                     foreach (IWebElement e in Navegador.FindElements(byTag))
                     {
                         if (e.Text != null && e.Text.ToUpper().Equals(texto.ToUpper()))
@@ -283,7 +279,7 @@ namespace Selenium.Navegadores
                 try
                 {
                     By byTag = By.TagName(tag);
-                    
+
                     var elementos = Navegador.FindElements(byTag);
                     var elementosLocalizados = elementos.Where(e => e.GetAttribute(propriedade) != null && e.GetAttribute(propriedade).ToUpper().Equals(texto.ToUpper()));
 
@@ -339,7 +335,7 @@ namespace Selenium.Navegadores
                 try
                 {
                     By byTag = By.TagName(tag);
-                    
+
                     foreach (IWebElement e in Navegador.FindElements(byTag))
                     {
                         if (e.GetAttribute(propriedade) != null && e.GetAttribute(propriedade).ToUpper().Equals(texto.ToUpper()))
@@ -396,7 +392,7 @@ namespace Selenium.Navegadores
         {
             try
             {
-                System.Diagnostics.Process[] chromeDriverProcesses = System.Diagnostics.Process.GetProcessesByName("chromedriver");
+                Process[] chromeDriverProcesses = Process.GetProcessesByName("chromedriver");
                 foreach (var chromeDriverProcess in chromeDriverProcesses)
                 {
                     if (chromeDriverProcess.Id.ToString().Equals(ProcessIdDriver))
@@ -503,12 +499,6 @@ namespace Selenium.Navegadores
         }
         #endregion
 
-        private static string GetBasePath()
-        {
-            using var processModule = Process.GetCurrentProcess().MainModule;
-            return Path.GetDirectoryName(processModule?.FileName);
-        }
-
         /// <summary>
         /// Encerra o processo do Chromedriver e todas as janelas do Chrome que este iniciou
         /// </summary>
@@ -517,7 +507,7 @@ namespace Selenium.Navegadores
         {
             try
             {
-                System.Diagnostics.Process[] chromeDriverProcesses = System.Diagnostics.Process.GetProcessesByName("chromedriver");
+                Process[] chromeDriverProcesses = Process.GetProcessesByName("chromedriver");
                 foreach (var chromeDriverProcess in chromeDriverProcesses)
                 {
                     if (chromeDriverProcess.Id.ToString().Equals(ProcessIdDriver))
@@ -542,7 +532,7 @@ namespace Selenium.Navegadores
         private void EncerrarNavegador(string chromeDriverProcessID)
         {
 
-            System.Diagnostics.Process[] chromeProcess = System.Diagnostics.Process.GetProcessesByName("chrome");
+            Process[] chromeProcess = Process.GetProcessesByName("chrome");
             foreach (var process in chromeProcess)
             {
                 int parentPid = 0;
@@ -558,6 +548,12 @@ namespace Selenium.Navegadores
                     }
                 }
             }
+        }
+
+        private static string GetBasePath()
+        {
+            using var processModule = Process.GetCurrentProcess().MainModule;
+            return Path.GetDirectoryName(processModule?.FileName);
         }
     }
 }
